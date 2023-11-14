@@ -71,6 +71,20 @@ class SettingsController extends ClientApiController
     }
 
     /**
+     * Installs a new game at the server on the daemon.
+     *
+     * @throws \Throwable
+     */
+    public function installServerEgg(ReinstallServerRequest $request, Server $server): JsonResponse
+    {
+//        $this->reinstallServerService->handle($server);
+
+        Activity::event('server:install:egg')->log();
+
+        return new JsonResponse([], Response::HTTP_ACCEPTED);
+    }
+
+    /**
      * Changes the Docker image in use by the server.
      *
      * @throws \Throwable

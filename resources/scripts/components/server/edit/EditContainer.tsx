@@ -38,6 +38,8 @@ export default () => {
     const [amount, setAmount] = useState(0);
 
     const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
+    const serverData = ServerContext.useStoreState((state) => state.server.data);
+
     const { clearFlashes, addFlash, clearAndAddHttpError } = useFlash();
 
     const edit = (resource: string, amount: number) => {
@@ -72,7 +74,11 @@ export default () => {
                 This will move resources between your account and the server. Are you sure you want to continue?
             </Dialog.Confirm>
             <Container css={tw`lg:grid lg:grid-cols-3 gap-4 my-10`}>
-                <TitledGreyBox title={'Edit server CPU limit'} css={tw`mt-8 sm:mt-0`}>
+                <TitledGreyBox
+                    title={'Edit server CPU limit'}
+                    subtitle={serverData?.limits.cpu + '%'}
+                    css={tw`mt-8 sm:mt-0`}
+                >
                     <Wrapper>
                         <Icon.Cpu size={40} />
                         <Button.Success
@@ -101,7 +107,11 @@ export default () => {
                     </p>
                     <p css={tw`mt-1 text-gray-500 text-xs flex justify-center`}>Limit cannot be lower than 50%.</p>
                 </TitledGreyBox>
-                <TitledGreyBox title={'Edit server RAM limit'} css={tw`mt-8 sm:mt-0 sm:ml-8`}>
+                <TitledGreyBox
+                    title={'Edit server RAM limit'}
+                    subtitle={serverData?.limits.memory + 'GB'}
+                    css={tw`mt-8 sm:mt-0 sm:ml-8`}
+                >
                     <Wrapper>
                         <Icon.PieChart size={40} />
                         <Button.Success
@@ -130,7 +140,11 @@ export default () => {
                     </p>
                     <p css={tw`mt-1 text-gray-500 text-xs flex justify-center`}>Limit cannot be lower than 1GB.</p>
                 </TitledGreyBox>
-                <TitledGreyBox title={'Edit server storage limit'} css={tw`mt-8 sm:mt-0 sm:ml-8`}>
+                <TitledGreyBox
+                    title={'Edit server storage limit'}
+                    subtitle={serverData?.limits.disk + 'GB'}
+                    css={tw`mt-8 sm:mt-0 sm:ml-8`}
+                >
                     <Wrapper>
                         <Icon.HardDrive size={40} />
                         <Button.Success
@@ -159,7 +173,11 @@ export default () => {
                     </p>
                     <p css={tw`mt-1 text-gray-500 text-xs flex justify-center`}>Limit cannot be lower than 1GB.</p>
                 </TitledGreyBox>
-                <TitledGreyBox title={'Edit server port quantity'} css={tw`mt-8 sm:mt-0`}>
+                <TitledGreyBox
+                    title={'Edit server port quantity'}
+                    subtitle={serverData?.featureLimits.allocations + 'x'}
+                    css={tw`mt-8 sm:mt-0`}
+                >
                     <Wrapper>
                         <Icon.Share2 size={40} />
                         <Button.Success
@@ -188,7 +206,11 @@ export default () => {
                     </p>
                     <p css={tw`mt-1 text-gray-500 text-xs flex justify-center`}>Limit cannot be lower than 1.</p>
                 </TitledGreyBox>
-                <TitledGreyBox title={'Edit server backup limit'} css={tw`mt-8 sm:mt-0 sm:ml-8`}>
+                <TitledGreyBox
+                    title={'Edit server backup limit'}
+                    subtitle={serverData?.featureLimits.backups + 'x'}
+                    css={tw`mt-8 sm:mt-0 sm:ml-8`}
+                >
                     <Wrapper>
                         <Icon.Archive size={40} />
                         <Button.Success
@@ -216,7 +238,11 @@ export default () => {
                         Change the limit of backups assigned to the server.
                     </p>
                 </TitledGreyBox>
-                <TitledGreyBox title={'Edit server database limit'} css={tw`mt-8 sm:mt-0 sm:ml-8`}>
+                <TitledGreyBox
+                    title={'Edit server database limit'}
+                    subtitle={serverData?.featureLimits.databases + 'x'}
+                    css={tw`mt-8 sm:mt-0 sm:ml-8`}
+                >
                     <Wrapper>
                         <Icon.Database size={40} />
                         <Button.Success

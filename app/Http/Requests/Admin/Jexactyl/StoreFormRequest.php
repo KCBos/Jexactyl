@@ -28,9 +28,9 @@ class StoreFormRequest extends AdminFormRequest
             'store:limit:cpu' => 'required|int|min:1',
             'store:limit:memory' => 'required|int|min:1',
             'store:limit:disk' => 'required|int|min:1',
-            'store:limit:port' => 'required|int|min:1',
-            'store:limit:backup' => 'required|int|min:1',
-            'store:limit:database' => 'required|int|min:1',
+            'store:limit:allocation_limit' => 'required|int|min:1',
+            'store:limit:backup_limit' => 'required|int|min:1',
+            'store:limit:database_limit' => 'required|int|min:1',
         ];
     }
 }

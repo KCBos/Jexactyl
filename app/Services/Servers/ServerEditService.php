@@ -47,9 +47,9 @@ class ServerEditService
      */
     protected function verify(EditServerRequest $request, Server $server, User $user)
     {
-        $amount = $request->input('amount');
+        $amount = (int) $request->input('amount');
         $resource = $request->input('resource');
-        $limit = $this->settings->get('jexactyl::store:limit:' . $resource);
+        $limit = (int) $this->settings->get('jexactyl::store:limit:' . $resource);
 
         // Check if the amount requested goes over defined limits.
         if (($amount + $this->toServer($resource, $server)) > $limit) {

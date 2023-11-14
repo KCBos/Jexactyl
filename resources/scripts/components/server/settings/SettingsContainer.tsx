@@ -8,6 +8,7 @@ import ServerContentBlock from '@/components/elements/ServerContentBlock';
 import RenameServerBox from '@/components/server/settings/RenameServerBox';
 import DeleteServerBox from '@/components/server/settings/DeleteServerBox';
 import ReinstallServerBox from '@/components/server/settings/ReinstallServerBox';
+import InstallServerEgg from '@/components/server/settings/InstallServerEgg';
 import ChangeBackgroundBox from '@/components/server/settings/ChangeBackgroundBox';
 
 export default () => {
@@ -46,6 +47,9 @@ export default () => {
                     <Can action={'settings.reinstall'}>
                         <ReinstallServerBox />
                     </Can>
+                </div>
+                <div className={'w-full mt-6 md:flex-1 md:mt-0'}>
+                    <InstallServerEgg />
                 </div>
             </div>
         </ServerContentBlock>

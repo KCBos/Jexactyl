@@ -55,9 +55,9 @@ class StoreController extends Controller
             'limit_cpu' => $this->settings->get($prefix . 'limit:cpu', 100),
             'limit_memory' => $this->settings->get($prefix . 'limit:memory', 4096),
             'limit_disk' => $this->settings->get($prefix . 'limit:disk', 10240),
-            'limit_port' => $this->settings->get($prefix . 'limit:port', 1),
-            'limit_backup' => $this->settings->get($prefix . 'limit:backup', 1),
-            'limit_database' => $this->settings->get($prefix . 'limit:database', 1),
+            'limit_port' => $this->settings->get($prefix . 'limit:allocation_limit', 1),
+            'limit_backup' => $this->settings->get($prefix . 'limit:backup_limit', 1),
+            'limit_database' => $this->settings->get($prefix . 'limit:database_limit', 1),
         ]);
     }
 

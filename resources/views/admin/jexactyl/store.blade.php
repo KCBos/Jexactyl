@@ -196,7 +196,7 @@
                                 <label class="control-label">Network Allocation limit</label>
                                 <div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="store:limit:port" value="{{ $limit_port }}" />
+                                        <input type="text" class="form-control" name="store:limit:allocation_limit" value="{{ $limit_port }}" />
                                         <span class="input-group-addon">ports</span>
                                     </div>
                                     <p class="text-muted"><small>The maximum amount of ports (allocations) a server can be deployed with. </small></p>
@@ -206,7 +206,7 @@
                                 <label class="control-label">Backup limit</label>
                                 <div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="store:limit:backup" value="{{ $limit_backup }}" />
+                                        <input type="text" class="form-control" name="store:limit:backup_limit" value="{{ $limit_backup }}" />
                                         <span class="input-group-addon">backups</span>
                                     </div>
                                     <p class="text-muted"><small>The maximum amount of backups a server can be deployed with. </small></p>
@@ -216,7 +216,7 @@
                                 <label class="control-label">Database limit</label>
                                 <div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="store:limit:database" value="{{ $limit_database }}" />
+                                        <input type="text" class="form-control" name="store:limit:database_limit" value="{{ $limit_database }}" />
                                         <span class="input-group-addon">databases</span>
                                     </div>
                                     <p class="text-muted"><small>The maximum amount of databases a server can be deployed with. </small></p>
